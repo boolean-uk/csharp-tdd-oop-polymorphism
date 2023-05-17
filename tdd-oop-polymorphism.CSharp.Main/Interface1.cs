@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Book : Interface1
+    public interface Interface1
     {
-      
+         int price { get; set; }
+         string name { get; set; }
 
-        public int price { get ; set  ; }
-        public string name { get ; set ; }
+        
 
-     
     }
 }
