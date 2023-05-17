@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Book : Interface1
+    public class Book : IProduct
     {
       
 

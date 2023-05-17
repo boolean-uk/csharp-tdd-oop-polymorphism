@@ -8,9 +8,9 @@ namespace tdd_oop_polymorphism.CSharp.Main
 {
     public class Basket
     {
-        List<Interface1> _products = new List<Interface1>();
+        List<IProduct> _products = new List<IProduct>();
 
-        public void add(Interface1 product)
+        public void add(IProduct product)
         {
             _products.Add(product);
         }
@@ -21,7 +21,7 @@ namespace tdd_oop_polymorphism.CSharp.Main
         {
             int total = 0;
 
-            foreach (Interface1 item in _products)
+            foreach (IProduct item in _products)
             {
                 total += item.price;
             }
@@ -31,7 +31,7 @@ namespace tdd_oop_polymorphism.CSharp.Main
 
         public bool isInBasket(String name)
         {
-           foreach (Interface1 item in _products)
+           foreach (IProduct item in _products)
             {
                 if (item.name == name)
                 {

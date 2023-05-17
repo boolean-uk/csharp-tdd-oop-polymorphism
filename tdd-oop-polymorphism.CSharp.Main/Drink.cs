@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Drink : Interface1
+    public class Drink : IProduct
     {
         public int price { get; set; }
         public string name { get; set; }

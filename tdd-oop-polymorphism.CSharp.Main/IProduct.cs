@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public interface Interface1
+    public interface IProduct
     {
          int price { get; set; }
          string name { get; set; }
