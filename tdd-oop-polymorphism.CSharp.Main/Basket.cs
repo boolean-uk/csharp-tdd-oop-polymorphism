@@ -8,73 +8,33 @@ namespace tdd_oop_polymorphism.CSharp.Main
 {
     public class Basket
     {
-        List<Game> games = new List<Game>();
-        List<Drink> drinks = new List<Drink>();
-        List<Book> books = new List<Book>();
+        List<MyInterface> list = new List<MyInterface>();
 
-        public void add(Game game)
+        public void add(MyInterface myinterface)
         {
-            this.games.Add(game);
-        }
-
-        public void add(Drink drink)
-        {
-            this.drinks.Add(drink);
-        }
-
-        public void add(Book book)
-        {
-            this.books.Add(book);
+            this.list.Add(myinterface);
         }
 
         public int getTotal()
         {
             int total = 0;
 
-            foreach (Game game in this.games)
+            foreach (MyInterface item in list)
             {
-                total += game.getPrice();
+                total += item.price;
             }
-
-            foreach (Drink drink in this.drinks)
-            {
-                total += drink.getPrice();
-            }
-
-            foreach (Book book in this.books)
-            {
-                total += book.getPrice();
-            }
-
             return total;
         }
 
         public bool isInBasket(String name)
         {
-            foreach (Game game in this.games)
+            foreach (MyInterface item in list)
             {
-                if (game.getName().Equals(name))
+                if (item.name.Equals(name))
                 {
                     return true;
                 }
             }
-
-            foreach (Drink drink in this.drinks)
-            {
-                if (drink.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Book book in this.books)
-            {
-                if (book.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
             return false;
         }
     }
