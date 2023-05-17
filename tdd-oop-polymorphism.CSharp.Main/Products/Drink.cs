@@ -3,28 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tdd_oop_polymorphism.CSharp.Main.Interfaces;
 
-namespace tdd_oop_polymorphism.CSharp.Main
+namespace Products
 {
-    public class Game
+    public class Drink : IProduct
     {
         string name;
         int price;
 
-        public Game(string name, int price)
+        public Drink(string name, int price)
         {
             this.name = name;
             this.price = price;
         }
 
-        public int getPrice()
+        public int GetPrice()
         {
-            return this.price;
+            return price;
         }
 
-        public string getName()
+        public string GetName()
         {
-            return this.name;
+            return name;
         }
     }
 }

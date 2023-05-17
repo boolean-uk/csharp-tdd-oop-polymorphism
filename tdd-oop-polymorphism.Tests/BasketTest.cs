@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Products;
 using tdd_oop_polymorphism.CSharp.Main;
 
 namespace tdd_oop_polymorphism.Tests
