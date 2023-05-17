@@ -1,30 +1,32 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tdd_oop_polymorphism.CSharp.Main;
 
-namespace tdd_oop_polymorphism.CSharp.Main
+namespace Products
 {
-    public class Book
+    public class Book : IProduct
     {
         string name;
-        int price;
+        decimal price;
 
-        public Book(string name, int price)
+        public Book(string name, decimal price)
         {
             this.name = name;
             this.price = price;
         }
 
-        public int getPrice()
+        public decimal getPrice()
         {
-            return this.price;
+            return price;
         }
 
         public string getName()
         {
-            return this.name;
+            return name;
         }
     }
 }
