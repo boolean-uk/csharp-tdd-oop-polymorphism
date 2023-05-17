@@ -9,9 +9,18 @@ namespace tdd_oop_polymorphism.Tests
         public void shouldCalculateTotal()
         {
             Basket basket = new Basket();
-            basket.add(new Game("Morrowind", 12));
-            basket.add(new Book("Darkly Dreaming Dexter", 6));
-            basket.add(new Drink("Cappucino", 2));
+            Book book = new Book();
+            Drink drink = new Drink();
+            Game game = new Game();
+            game.name = "Morrowind";
+            game.price = 12;
+            book.name = "Darkly Dreaming Dexter";
+            book.price = 6;
+            drink.name = "Cappucino";
+            drink.price = 2;
+            basket.add(book);
+            basket.add(drink);
+            basket.add(game);
 
             Assert.AreEqual(20, basket.getTotal());
         }
@@ -20,9 +29,18 @@ namespace tdd_oop_polymorphism.Tests
         public void shouldFindExistingProduct()
         {
             Basket basket = new Basket();
-            basket.add(new Game("Morrowind", 12));
-            basket.add(new Book("Darkly Dreaming Dexter", 6));
-            basket.add(new Drink("Cappucino", 2));
+            Book book = new Book();
+            Drink drink = new Drink();
+            Game game = new Game();
+            game.name = "Morrowind";
+            game.price = 12;
+            book.name = "Darkly Dreaming Dexter";
+            book.price = 6;
+            drink.name = "Cappucino";
+            drink.price = 2;
+            basket.add(book);
+            basket.add(drink);
+            basket.add(game);
 
             Assert.IsTrue(basket.isInBasket("Morrowind"));
         }
@@ -31,9 +49,18 @@ namespace tdd_oop_polymorphism.Tests
         public void shouldNotFindNonExistingProduct()
         {
             Basket basket = new Basket();
-            basket.add(new Game("Morrowind", 12));
-            basket.add(new Book("Darkly Dreaming Dexter", 6));
-            basket.add(new Drink("Cappucino", 2));
+            Book book = new Book();
+            Drink drink = new Drink();
+            Game game = new Game();
+            game.name = "Morrowind";
+            game.price = 12;
+            book.name = "Darkly Dreaming Dexter";
+            book.price = 6;
+            drink.name = "Cappucino";
+            drink.price = 2;
+            basket.add(book);
+            basket.add(drink);
+            basket.add(game);
 
             Assert.IsFalse(basket.isInBasket("Skyrim"));
         }
