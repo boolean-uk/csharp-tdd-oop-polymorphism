@@ -1,17 +1,18 @@
-﻿using System;
+﻿using Interfaces_oop_polymorphism.CSharp.Main;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tdd_oop_polymorphism.CSharp.Main
+namespace Products
 {
-    public class Drink
+    public class Game : IProduct
     {
         string name;
         int price;
 
-        public Drink(string name, int price)
+        public Game(string name, int price)
         {
             this.name = name;
             this.price = price;
@@ -19,12 +20,12 @@ namespace tdd_oop_polymorphism.CSharp.Main
 
         public int getPrice()
         {
-            return this.price;
+            return price;
         }
 
         public string getName()
         {
-            return this.name;
+            return name;
         }
     }
 }
