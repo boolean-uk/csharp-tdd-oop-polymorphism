@@ -3,6 +3,7 @@
 Class       | Attribute                 | Method          | Output
 ------------|---------------------------|-----------------|--------------------------------------
 Basket      | products List IProduct    | add             | Boolean success or fail
+            |                           | remove          | Boolean success or fail
             |                           | getTotal        | Int total cost of basket
             |                           | isInBasket      | Boolean item exists by name or not
             |                           | generateReceipt | String receipt for basket
