@@ -15,6 +15,11 @@ namespace tdd_oop_polymorphism.CSharp.Main
             this.products.Add(product);
         }
 
+        public void remove(IProduct product)
+        {
+            this.products.Remove(product);
+        }
+
         public int getTotal()
         {
             int total = 0;
@@ -26,11 +31,12 @@ namespace tdd_oop_polymorphism.CSharp.Main
             return total;
         }
 
+        // https://learn.microsoft.com/en-us/dotnet/api/system.stringcomparer.ordinalignorecase?view=net-7.0 used StringComparer.OrdinalIgnoreCase Property
         public bool isInBasket(String name)
         {
             foreach (IProduct product in this.products)
             {
-                if (product.getName().Equals(name))
+                if (product.getName().Equals(name, StringComparison.OrdinalIgnoreCase))
                 {
                     return true;
                 }

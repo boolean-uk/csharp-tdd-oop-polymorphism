@@ -61,7 +61,7 @@ namespace tdd_oop_polymorphism.Tests
             Basket basket = new Basket();
             basket.add(new Game("Morrowind", 15));
             Assert.That(basket.isInBasket("Morrowind"), Is.True);
-            Assert.That(basket.isInBasket("morrowind"), Is.False);
+            Assert.That(basket.isInBasket("morrowind"), Is.True);
         }
 
         [Test]
