@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Drink
+    public class Drink : IProduct
     {
         string name;
         int price;
@@ -25,6 +25,7 @@ namespace tdd_oop_polymorphism.CSharp.Main
         public string getName()
         {
             return this.name;
+
         }
     }
 }
