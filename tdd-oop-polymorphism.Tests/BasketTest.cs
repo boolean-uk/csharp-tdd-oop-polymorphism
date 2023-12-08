@@ -13,7 +13,8 @@ namespace tdd_oop_polymorphism.Tests
             basket.add(new Book("Darkly Dreaming Dexter", 6));
             basket.add(new Drink("Cappucino", 2));
 
-            Assert.AreEqual(20, basket.getTotal());
+            //Assert.AreEqual(20, basket.getTotal());
+            Assert.That(basket.getTotal(), Is.EqualTo(20));
         }
 
         [Test]
