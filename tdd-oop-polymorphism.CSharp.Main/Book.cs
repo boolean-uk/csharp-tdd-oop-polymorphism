@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tdd_oop_polymorphism;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Book
+    public interface Items
+    {
+        int getPrice();
+        string getName();
+    }
+    public class Book : Items
     {
         string name;
         int price;
