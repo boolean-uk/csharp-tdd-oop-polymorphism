@@ -1,75 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tdd_oop_polymorphism.CSharp.Main
+﻿namespace tdd_oop_polymorphism.CSharp.Main
 {
     public class Basket
     {
-        List<Game> games = new List<Game>();
-        List<Drink> drinks = new List<Drink>();
-        List<Book> books = new List<Book>();
+        List<IProduct> products = new List<IProduct>();
 
-        public void add(Game game)
+        public void add(IProduct product)
         {
-            this.games.Add(game);
-        }
-
-        public void add(Drink drink)
-        {
-            this.drinks.Add(drink);
-        }
-
-        public void add(Book book)
-        {
-            this.books.Add(book);
+            this.products.Add(product);
         }
 
         public int getTotal()
         {
             int total = 0;
 
-            foreach (Game game in this.games)
+            foreach(IProduct product in this.products)
             {
-                total += game.getPrice();
-            }
-
-            foreach (Drink drink in this.drinks)
-            {
-                total += drink.getPrice();
-            }
-
-            foreach (Book book in this.books)
-            {
-                total += book.getPrice();
+                total += product.getPrice();
             }
 
             return total;
         }
 
+
         public bool isInBasket(String name)
         {
-            foreach (Game game in this.games)
+            foreach(IProduct product in this.products)
             {
-                if (game.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Drink drink in this.drinks)
-            {
-                if (drink.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Book book in this.books)
-            {
-                if (book.getName().Equals(name))
+                if(product.getName().Equals(name))
                 {
                     return true;
                 }
@@ -79,3 +36,4 @@ namespace tdd_oop_polymorphism.CSharp.Main
         }
     }
 }
+
