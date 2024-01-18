@@ -10,9 +10,7 @@ namespace tdd_oop_polymorphism.CSharp.Main
     
     public class Basket
     {
-        List<Game> games = new List<Game>();
-        List<Drink> drinks = new List<Drink>();
-        List<Book> books = new List<Book>();
+
         List<ItemBase> Items = new List<ItemBase>();
 
         public void add(ItemBase item)
