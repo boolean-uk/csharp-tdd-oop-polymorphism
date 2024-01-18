@@ -6,75 +6,43 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
+
+    public interface IProduct
+    {
+        int getPrice();
+        string getName();
+    }
+
     public class Basket
     {
-        List<Game> games = new List<Game>();
-        List<Drink> drinks = new List<Drink>();
-        List<Book> books = new List<Book>();
 
-        public void add(Game game)
-        {
-            this.games.Add(game);
-        }
+        private List<IProduct> products = new List<IProduct>();
 
-        public void add(Drink drink)
+        public void add(IProduct product)
         {
-            this.drinks.Add(drink);
-        }
-
-        public void add(Book book)
-        {
-            this.books.Add(book);
+            this.products.Add(product);
         }
 
         public int getTotal()
         {
             int total = 0;
 
-            foreach (Game game in this.games)
+            foreach (IProduct item in this.products)
             {
-                total += game.getPrice();
+                total += item.getPrice();
             }
-
-            foreach (Drink drink in this.drinks)
-            {
-                total += drink.getPrice();
-            }
-
-            foreach (Book book in this.books)
-            {
-                total += book.getPrice();
-            }
-
             return total;
         }
 
         public bool isInBasket(String name)
         {
-            foreach (Game game in this.games)
+            foreach (IProduct item in this.products)
             {
-                if (game.getName().Equals(name))
+                if (item.getName().Equals(name))
                 {
                     return true;
                 }
             }
-
-            foreach (Drink drink in this.drinks)
-            {
-                if (drink.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Book book in this.books)
-            {
-                if (book.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
             return false;
         }
     }
