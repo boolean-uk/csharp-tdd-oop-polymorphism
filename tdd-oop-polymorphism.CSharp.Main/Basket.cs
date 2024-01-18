@@ -12,67 +12,29 @@ namespace tdd_oop_polymorphism.CSharp.Main
         List<Drink> drinks = new List<Drink>();
         List<Book> books = new List<Book>();
 
-        public void add(Game game)
-        {
-            this.games.Add(game);
-        }
+        List<Item> items = new List<Item>();
 
-        public void add(Drink drink)
+        public void add(Item item)
         {
-            this.drinks.Add(drink);
-        }
-
-        public void add(Book book)
-        {
-            this.books.Add(book);
+            items.Add(item);
         }
 
         public int getTotal()
         {
             int total = 0;
 
-            foreach (Game game in this.games)
-            {
-                total += game.getPrice();
-            }
-
-            foreach (Drink drink in this.drinks)
-            {
-                total += drink.getPrice();
-            }
-
-            foreach (Book book in this.books)
-            {
-                total += book.getPrice();
-            }
+            foreach (Item item in this.items)
+                total += item.getPrice();
 
             return total;
         }
 
         public bool isInBasket(String name)
         {
-            foreach (Game game in this.games)
+            foreach (Item item in this.items)
             {
-                if (game.getName().Equals(name))
-                {
+                if (item.getName().Equals(name))
                     return true;
-                }
-            }
-
-            foreach (Drink drink in this.drinks)
-            {
-                if (drink.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Book book in this.books)
-            {
-                if (book.getName().Equals(name))
-                {
-                    return true;
-                }
             }
 
             return false;
