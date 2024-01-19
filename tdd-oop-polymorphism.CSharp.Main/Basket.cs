@@ -8,35 +8,37 @@ namespace tdd_oop_polymorphism.CSharp.Main
 {
     public class Basket
     {
-        List<Game> games = new List<Game>();
-        List<Drink> drinks = new List<Drink>();
-        List<Book> books = new List<Book>();
+        List<Interface1> list = new List<Interface1>();
 
-        public void add(Game game)
+       /* List<Game> games = new List<Game>();
+        List<Drink> drinks = new List<Drink>();
+        List<Book> books = new List<Book>();*/
+
+       /* public void add(Game game)
         {
             this.games.Add(game);
-        }
+        }*/
 
-        public void add(Drink drink)
+        public void add(Interface1 interface1)
         {
-            this.drinks.Add(drink);
+            this.list.Add(interface1);
         }
 
-        public void add(Book book)
+        /*public void add(Book book)
         {
             this.books.Add(book);
-        }
+        }*/
 
         public int getTotal()
         {
             int total = 0;
 
-            foreach (Game game in this.games)
+            foreach (Interface1 item in list)
             {
-                total += game.getPrice();
+                total += item.price;
             }
 
-            foreach (Drink drink in this.drinks)
+            /*foreach (Drink drink in this.drinks)
             {
                 total += drink.getPrice();
             }
@@ -44,38 +46,23 @@ namespace tdd_oop_polymorphism.CSharp.Main
             foreach (Book book in this.books)
             {
                 total += book.getPrice();
-            }
+            }*/
 
             return total;
         }
 
         public bool isInBasket(String name)
         {
-            foreach (Game game in this.games)
+            foreach (Interface1 item in list)
             {
-                if (game.getName().Equals(name))
+                if (item.name.Equals(name))
                 {
                     return true;
                 }
-            }
+                 }
+                  
 
-            foreach (Drink drink in this.drinks)
-            {
-                if (drink.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Book book in this.books)
-            {
-                if (book.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
+                return false;
+            } 
     }
 }
