@@ -13,7 +13,9 @@ namespace tdd_oop_polymorphism.Tests
             basket.add(new Book("Darkly Dreaming Dexter", 6));
             basket.add(new Drink("Cappucino", 2));
 
+            decimal total = basket.getTotal();
             Assert.AreEqual(20, basket.getTotal());
+            Console.WriteLine($"{total}");
         }
 
         [Test]
