@@ -8,17 +8,17 @@ namespace tdd_oop_polymorphism.CSharp.Main
 {
     public class Basket
     {
-        List<Interface1> list = new List<Interface1>();
+      private List<Interface1> list = new List<Interface1>();
 
         public void add(Interface1 item)
         {
-            this.list.Add(item);
+            list.Add(item);
         }
         public int getTotal()
         {
             int total = 0;
 
-            foreach (Interface1 item in list)
+            foreach (var item in list)
             {
                 total += item.price;
             }
@@ -26,15 +26,7 @@ namespace tdd_oop_polymorphism.CSharp.Main
         }
         public bool isInBasket(String name)
         {
-            foreach (Interface1 item in list)
-            {
-                if (item.Name.Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+           return list.Any(item => item.Name == name);
         }
     }
 }
