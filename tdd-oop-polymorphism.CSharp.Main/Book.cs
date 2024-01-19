@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Book
+    public class Book : IProduct
     {
-        string name;
-        int price;
+        private string name;
+        private int price;
 
         public Book(string name, int price)
         {
             this.name = name;
             this.price = price;
         }
+
+    
 
         public int getPrice()
         {
@@ -26,5 +28,6 @@ namespace tdd_oop_polymorphism.CSharp.Main
         {
             return this.name;
         }
+
     }
 }
