@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,74 +9,35 @@ namespace tdd_oop_polymorphism.CSharp.Main
 {
     public class Basket
     {
-        List<Game> games = new List<Game>();
-        List<Drink> drinks = new List<Drink>();
-        List<Book> books = new List<Book>();
+        List<ICategory> games = new List<ICategory>();
+        List<ICategory> drinks = new List<ICategory>();
+        List<ICategory> books = new List<ICategory>();
+        List<ICategory> categories = new List<ICategory>();
 
-        public void add(Game game)
+        public void add(ICategory category)
         {
-            this.games.Add(game);
-        }
-
-        public void add(Drink drink)
-        {
-            this.drinks.Add(drink);
-        }
-
-        public void add(Book book)
-        {
-            this.books.Add(book);
-        }
+            categories.Add(category);
+            /*
+            if (category is Game) { games.Add(category); return; }
+            if (category is Drink) { drinks.Add(category); return;  }
+            if (category is Book) {  books.Add(category); return; }
+           
+            throw new ArgumentException("Invalid category type. Must be an instance of Game, Drink, or Book.", nameof(category));
+            */
+        }        
 
         public int getTotal()
         {
             int total = 0;
-
-            foreach (Game game in this.games)
-            {
-                total += game.getPrice();
-            }
-
-            foreach (Drink drink in this.drinks)
-            {
-                total += drink.getPrice();
-            }
-
-            foreach (Book book in this.books)
-            {
-                total += book.getPrice();
-            }
+            total = categories.Sum(c => c.getPrice());                    
 
             return total;
         }
 
         public bool isInBasket(String name)
         {
-            foreach (Game game in this.games)
-            {
-                if (game.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Drink drink in this.drinks)
-            {
-                if (drink.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Book book in this.books)
-            {
-                if (book.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            ICategory? found = categories.Find(c => c.getName().Equals(name));
+            return found != null ? true : false;            
         }
     }
 }
