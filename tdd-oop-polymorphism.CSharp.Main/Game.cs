@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Game
+    public class Game : IProduct
     {
-        string name;
-        int price;
+        private string name;
+        private int price;
 
         public Game(string name, int price)
         {
