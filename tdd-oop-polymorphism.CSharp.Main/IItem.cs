@@ -6,16 +6,10 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Drink : IItem
+    public interface IItem
     {
         public string Name { get; set; }
         public int Price { get; set; }
-
-        public Drink(string name, int price)
-        {
-            this.Name = name;
-            this.Price = price;
-        }
 
         public int getPrice()
         {
