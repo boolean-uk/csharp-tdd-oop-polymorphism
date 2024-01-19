@@ -8,74 +8,25 @@ namespace tdd_oop_polymorphism.CSharp.Main
 {
     public class Basket
     {
-        List<Game> games = new List<Game>();
-        List<Drink> drinks = new List<Drink>();
-        List<Book> books = new List<Book>();
+        List<Product> products = new List<Product>();
 
-        public void add(Game game)
+        public void Add(Product product)
         {
-            this.games.Add(game);
+            this.products.Add(product);
+        }
+        public int GetTotalPrice()
+        {
+            return products.Sum(x => x.GetPrice());
         }
 
-        public void add(Drink drink)
+        public bool IsInBasket(String name)
         {
-            this.drinks.Add(drink);
-        }
+            Product p = products.Find(x => x.GetName() == name);
 
-        public void add(Book book)
-        {
-            this.books.Add(book);
-        }
+            if( p == default(Product) || p == null)
+                return false;
 
-        public int getTotal()
-        {
-            int total = 0;
-
-            foreach (Game game in this.games)
-            {
-                total += game.getPrice();
-            }
-
-            foreach (Drink drink in this.drinks)
-            {
-                total += drink.getPrice();
-            }
-
-            foreach (Book book in this.books)
-            {
-                total += book.getPrice();
-            }
-
-            return total;
-        }
-
-        public bool isInBasket(String name)
-        {
-            foreach (Game game in this.games)
-            {
-                if (game.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Drink drink in this.drinks)
-            {
-                if (drink.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Book book in this.books)
-            {
-                if (book.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return true;
         }
     }
 }
