@@ -8,42 +8,23 @@ namespace tdd_oop_polymorphism.CSharp.Main
 {
     public class Basket
     {
-        List<Game> games = new List<Game>();
-        List<Drink> drinks = new List<Drink>();
-        List<Book> books = new List<Book>();
+        List<IObject> _objList = new List<IObject>();
 
-        public void add(Game game)
+
+        public void add(IObject inputObject)
         {
-            this.games.Add(game);
+            this._objList.Add(inputObject);
         }
 
-        public void add(Drink drink)
-        {
-            this.drinks.Add(drink);
-        }
 
-        public void add(Book book)
-        {
-            this.books.Add(book);
-        }
 
         public int getTotal()
         {
             int total = 0;
 
-            foreach (Game game in this.games)
+            foreach (IObject obj in this._objList)
             {
-                total += game.getPrice();
-            }
-
-            foreach (Drink drink in this.drinks)
-            {
-                total += drink.getPrice();
-            }
-
-            foreach (Book book in this.books)
-            {
-                total += book.getPrice();
+                total += obj.price;
             }
 
             return total;
@@ -51,29 +32,15 @@ namespace tdd_oop_polymorphism.CSharp.Main
 
         public bool isInBasket(String name)
         {
-            foreach (Game game in this.games)
+            foreach (IObject obj in this._objList)
             {
-                if (game.getName().Equals(name))
+                if (obj.name.Equals(name))
                 {
                     return true;
                 }
             }
 
-            foreach (Drink drink in this.drinks)
-            {
-                if (drink.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Book book in this.books)
-            {
-                if (book.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
+         
 
             return false;
         }
