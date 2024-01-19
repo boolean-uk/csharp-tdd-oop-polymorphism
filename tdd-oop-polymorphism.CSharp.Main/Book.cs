@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace tdd_oop_polymorphism.CSharp.Main;
 
-namespace tdd_oop_polymorphism.CSharp.Main
+public class Book : IProduct
 {
-    public class Book
+    string name;
+    int price;
+
+    public Book(string name, int price)
     {
-        string name;
-        int price;
+        this.name = name;
+        this.price = price;
+    }
 
-        public Book(string name, int price)
-        {
-            this.name = name;
-            this.price = price;
-        }
+    public int getPrice()
+    {
+        return this.price;
+    }
 
-        public int getPrice()
-        {
-            return this.price;
-        }
-
-        public string getName()
-        {
-            return this.name;
-        }
+    public string getName()
+    {
+        return this.name;
     }
 }
