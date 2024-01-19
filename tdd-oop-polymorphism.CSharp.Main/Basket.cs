@@ -1,75 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tdd_oop_polymorphism.CSharp.Main
+﻿namespace tdd_oop_polymorphism.CSharp.Main
 {
     public class Basket
     {
-        List<Game> games = new List<Game>();
-        List<Drink> drinks = new List<Drink>();
-        List<Book> books = new List<Book>();
+        List<IItem> items = new();
 
-        public void add(Game game)
+        public void Add(IItem item)
         {
-            this.games.Add(game);
+            this.items.Add(item);
         }
 
-        public void add(Drink drink)
-        {
-            this.drinks.Add(drink);
-        }
-
-        public void add(Book book)
-        {
-            this.books.Add(book);
-        }
-
-        public int getTotal()
+        public int GetTotal()
         {
             int total = 0;
 
-            foreach (Game game in this.games)
+            foreach (IItem item in this.items)
             {
-                total += game.getPrice();
+                total += item.GetPrice();
             }
-
-            foreach (Drink drink in this.drinks)
-            {
-                total += drink.getPrice();
-            }
-
-            foreach (Book book in this.books)
-            {
-                total += book.getPrice();
-            }
-
             return total;
         }
 
-        public bool isInBasket(String name)
+        public bool IsInBasket(String name)
         {
-            foreach (Game game in this.games)
+            foreach (IItem item in this.items)
             {
-                if (game.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Drink drink in this.drinks)
-            {
-                if (drink.getName().Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            foreach (Book book in this.books)
-            {
-                if (book.getName().Equals(name))
+                if (item.GetName().Equals(name))
                 {
                     return true;
                 }
