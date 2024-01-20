@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tdd_oop_polymorphism.CSharp.Main
+﻿namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Book
+    public class Book : Item
     {
-        string name;
-        int price;
+        //string name;
+        //int price;
 
         public Book(string name, int price)
         {
-            this.name = name;
-            this.price = price;
+            base.Name = name;
+            base.Price = price;
         }
 
+        /*
         public int getPrice()
         {
             return this.price;
@@ -26,5 +21,6 @@ namespace tdd_oop_polymorphism.CSharp.Main
         {
             return this.name;
         }
+        */
     }
 }
