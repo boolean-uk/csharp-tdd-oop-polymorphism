@@ -6,17 +6,21 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Book
+    public class Book : IProduct
     {
-        string name;
-        int price;
+        public string Name { get; set; }
+        public int Price { get; set; }
 
         public Book(string name, int price)
         {
-            this.name = name;
-            this.price = price;
+            this.Name = name;
+            this.Price = price;
         }
 
+        // Commented out the old getter methods, because by using properties you can directly access the values 
+        //using the property names (Name and Price) without needing explicit getter methods.
+
+        /*
         public int getPrice()
         {
             return this.price;
@@ -26,5 +30,6 @@ namespace tdd_oop_polymorphism.CSharp.Main
         {
             return this.name;
         }
+        */
     }
 }
