@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Interfaces;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Game
+    public class Game : IProduct
     {
         string name;
         int price;
