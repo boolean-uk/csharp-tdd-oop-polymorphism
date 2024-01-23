@@ -10,12 +10,6 @@ namespace tdd_oop_polymorphism.CSharp.Main
     {
         List<IBasketItem> items = new List<IBasketItem>();
        
-        public interface IBasketItem
-        {
-            int GetPrice();
-            string GetName();
-        }
-
         public void add(IBasketItem item)
         {
             this.items.Add(item);
