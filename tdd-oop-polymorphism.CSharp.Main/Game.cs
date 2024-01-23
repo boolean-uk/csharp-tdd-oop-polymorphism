@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static tdd_oop_polymorphism.CSharp.Main.Basket;
 
 namespace tdd_oop_polymorphism.CSharp.Main
 {
-    public class Game
+    public class Game : IBasketItem
     {
         string name;
         int price;
@@ -17,14 +18,19 @@ namespace tdd_oop_polymorphism.CSharp.Main
             this.price = price;
         }
 
-        public int getPrice()
+
+        public int GetPrice()
         {
             return this.price;
+         
+
         }
 
-        public string getName()
+        public string GetName()
         {
             return this.name;
+  
+
         }
     }
 }
