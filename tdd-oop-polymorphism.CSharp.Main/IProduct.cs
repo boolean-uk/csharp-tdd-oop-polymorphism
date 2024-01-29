@@ -8,7 +8,7 @@ namespace tdd_oop_polymorphism.CSharp.Main
 {
     public interface IProduct
     {
-        string getName();
-        int getPrice();
+        string Name { get; set; }
+        int Price { get; set;  }
     }
 }
